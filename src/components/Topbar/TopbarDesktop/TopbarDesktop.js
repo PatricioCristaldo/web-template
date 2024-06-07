@@ -94,15 +94,7 @@ const TopbarDesktop = props => {
             <FormattedMessage id="TopbarDesktop.yourListingsLink" />
           </NamedLink>
         </MenuItem>
-        <MenuItem key="FavoriteListingsPage">
-          <NamedLink
-            className={classNames(css.yourListingsLink, currentPageClass('FavoriteListingsPage'))}
-            name="FavoriteListingsPage"
-          >
-            <span className={css.menuItemBorder} />
-            <FormattedMessage id="TopbarDesktop.favoriteListingsLink" />
-          </NamedLink>
-        </MenuItem>
+        
         <MenuItem key="ProfileSettingsPage">
           <NamedLink
             className={classNames(css.profileSettingsLink, currentPageClass('ProfileSettingsPage'))}
@@ -121,6 +113,15 @@ const TopbarDesktop = props => {
             <FormattedMessage id="TopbarDesktop.accountSettingsLink" />
           </NamedLink>
         </MenuItem>
+        <MenuItem key="FAQS">
+          <a
+            className={classNames(css.yourListingsLink, currentPageClass('AccountSettingsPage'))}
+            name="FAQS" href="https://www.rundo.com.ar/p/frequent-asked-questions"
+          >
+            <span className={css.menuItemBorder} />
+            <FormattedMessage id="Preguntas Frecuentes" />
+          </a>
+        </MenuItem>
         <MenuItem key="logout">
           <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
             <span className={css.menuItemBorder} />
@@ -130,12 +131,12 @@ const TopbarDesktop = props => {
       </MenuContent>
     </Menu>
   ) : null;
-
+  
   const signupLink = isAuthenticatedOrJustHydrated ? null : (
     <NamedLink name="SignupPage" className={css.signupLink}>
-      <span className={css.signup}>
-        <FormattedMessage id="TopbarDesktop.signup" />
-      </span>
+       <span className={css.signup}>
+         <FormattedMessage id="TopbarDesktop.signup" />
+       </span>
     </NamedLink>
   );
 
@@ -155,6 +156,14 @@ const TopbarDesktop = props => {
         alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
       />
       {search}
+      <a style={{width: '20%', height: '100%'}}>
+        <a style={{ height: '100%', display: 'flex', alignItems: 'center'}} href="https://wa.me/5492944232664" target="_blank" >
+        <p style={{color: "green",textAlign: "center", display: "flex",
+        color: "#7cc9bc",alignItems: "center"}}>
+        <img src="/static/icons/whatsapp.png" alt="WhatsApp" style={{marginLeft: "10%",width: '15%'}}/></p>
+        </a>
+      </a>
+
       <Button style={{width: '20%', height: '100%'}}>
         <a style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center'}} href="https://wa.me/5492944232664" target="_blank" >
         <p style={{color: "white"}}>Si no encontras lo que buscas comunicate con nosotros</p>
@@ -168,7 +177,7 @@ const TopbarDesktop = props => {
       </NamedLink>
       {inboxLink}
       {profileMenu}
-      {signupLink}
+      
       {loginLink}
     </nav>
   );

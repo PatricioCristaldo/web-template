@@ -254,7 +254,7 @@ const OrderPanel = props => {
   const classes = classNames(rootClassName || css.root, className);
   const titleClasses = classNames(titleClassName || css.orderTitle);
 
-  const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
+  /*const isFavorite = currentUser?.attributes.profile.privateData.favorites?.includes(
     listing.id.uuid
   );
 
@@ -272,6 +272,8 @@ const OrderPanel = props => {
       <FormattedMessage id="OrderPanel.addFavoriteButton" />
     </Button>
   );
+  */
+  const helmetFee = listing?.attributes?.publicData.helmetFee;
   return (
     <div className={classes}>
       <ModalInMobile
@@ -354,6 +356,7 @@ const OrderPanel = props => {
             lineItems={lineItems}
             fetchLineItemsInProgress={fetchLineItemsInProgress}
             fetchLineItemsError={fetchLineItemsError}
+            helmetFee={helmetFee}
           />
         ) : showProductOrderForm ? (
           <ProductOrderForm
@@ -422,11 +425,11 @@ const OrderPanel = props => {
       </div>
 
       <div>
+        <p>Comunicate con Rundo</p>
         <a href="https://wa.me/5492944232664" target="_blank" className={css.A_css}>
 	          <img src="/static/icons/whatsapp.png" alt="WhatsApp" className={css.whatsAppButton}/>
         </a>
       </div>
-      {favoriteButton}
     </div>
   );
 };

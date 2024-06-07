@@ -59,7 +59,7 @@ export const EditListingExtraFeaturesFormComponent = props => (
             className={css.input}
             autoFocus={autoFocus}
             type="textarea"
-            label="Extra features"
+            label="El depósito en garantía es un monto (en pesos o dólares) que te abona el Solicitante al recibir el artículo, reembolsable si el artículo se devuelve en buen estado. Si hay daños/ pérdidas, el depósito puede retenerse para cubrir los costos y el Solicitante debe compensar lo restante. Se recomienda un monto de 2-20% del valor nuevo del artículo."
             placeholder={intl.formatMessage({ id: 'EditListingExtraFeaturesForm.extraFeaturesInputPlaceholder' })}
           />
 
